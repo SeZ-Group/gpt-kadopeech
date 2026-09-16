@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "کادوپیچ",
+    "slug": "kadopych",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFF8E9"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kadopych.app"
+    },
+    "android": {
+      "package": "com.kadopych.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#FFF8E9"
+      }
+    },
+    "plugins": [
+      ["expo-notifications", {"color": "#E43616", "defaultChannel": "reminders"}]
+    ]
+  }
+}

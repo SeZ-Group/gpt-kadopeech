@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#40142f">
+  <meta name="description" content="کادوپیچ؛ پیشنهاد هدیه متناسب با مناسبت، بودجه و سلیقه">
+  <title>کادوپیچ | پیشنهاد هدیه</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="kadopych-logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="صفحه اول کادوپیچ">
+      <img class="brand-logo" src="kadopych-logo.png" alt="">
+      <span><b>کادوپیچ</b><small>یک فکر خوب، توی یک بسته‌ی قشنگ</small></span>
+    </a>
+    <div class="top-actions">
+      <button class="ghost" id="favoritesBtn" type="button">♡ محبوب‌ها <span id="favoriteCount">۰</span></button>
+      <button class="ghost" id="remindersBtn" type="button">🔔 یادآورها</button>
+      <button class="ghost restart-top" id="restartTop" type="button">شروع دوباره</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" id="intro">
+      <div class="intro-copy">
+        <span class="eyebrow">پیشنهاد هدیه، بدون سردرگمی</span>
+        <h1>برای آدم درست،<br><em>کادوی درست</em> پیدا کن.</h1>
+        <p>به چند سؤال کوتاه جواب بده؛ کادوپیچ از میان ایده‌های کاربردی، احساسی و خاص، مناسب‌ترین‌ها را برایت جدا می‌کند.</p>
+        <button class="primary" id="startBtn" type="button">بریم هدیه پیدا کنیم <span>←</span></button>
+        <div class="trust"><span>۸ سؤال دقیق</span><i></i><span>۱۲ پیشنهاد منتخب</span><i></i><span>لینک خرید ایرانی</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-halo"></div>
+        <img class="mascot" src="kadopych-logo.png" alt="لوگوی خندان کادوپیچ">
+        <span class="sticker sticker-one">برای تو ✦</span>
+        <span class="sticker sticker-two">با عشق بسته‌بندی شد</span>
+      </div>
+    </section>
+
+    <section class="quiz hidden" id="quiz" aria-live="polite">
+      <div class="quiz-head">
+        <button class="back" id="backBtn" type="button" aria-label="سؤال قبل">→</button>
+        <div class="progress-wrap">
+          <div class="progress-meta"><span id="stepLabel">سؤال ۱ از ۸</span><span id="stepTitle">مناسبت</span></div>
+          <div class="progress"><span id="progressBar"></span></div>
+        </div>
+      </div>
+      <div class="question-card">
+        <span class="question-kicker" id="questionKicker"></span>
+        <h2 id="questionText"></h2>
+        <p id="questionHint"></p>
+        <div class="options" id="options" role="group"></div>
+      </div>
+    </section>
+
+    <section class="results hidden" id="results" aria-live="polite">
+      <div class="result-title">
+        <span class="eyebrow">پیشنهادهای مخصوص تو</span>
+        <h2>این ۱۲ تا بیشتر به دلش می‌نشینند!</h2>
+        <p id="resultSummary"></p>
+      </div>
+      <div class="gift-grid" id="giftGrid"></div>
+      <div class="result-actions">
+        <button class="ghost share-all" id="shareAllBtn" type="button">اشتراک‌گذاری همه پیشنهادها</button>
+        <button class="primary" id="restartBtn" type="button">دوباره انتخاب کن</button>
+        <p>قیمت و موجودی در فروشگاه مقصد ممکن است تغییر کند.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+  <aside class="drawer hidden" id="favoritesDrawer" aria-labelledby="favoritesTitle">
+    <div class="drawer-head"><div><span class="eyebrow">ذخیره‌شده‌ها</span><h2 id="favoritesTitle">هدیه‌های محبوب من</h2></div><button class="drawer-close" type="button" data-close>×</button></div>
+    <div id="favoritesList"></div>
+  </aside>
+
+  <aside class="drawer hidden" id="remindersDrawer" aria-labelledby="remindersTitle">
+    <div class="drawer-head"><div><span class="eyebrow">مناسبت‌ها</span><h2 id="remindersTitle">کی باید یادم بندازی؟</h2></div><button class="drawer-close" type="button" data-close>×</button></div>
+    <form id="reminderForm" class="reminder-form">
+      <label>نام مناسبت یا شخص<input id="reminderName" required placeholder="مثلاً تولد سارا"></label>
+      <label>تاریخ یادآوری<input id="reminderDate" required type="date"></label>
+      <button class="primary" type="submit">ثبت یادآور</button>
+      <p>یادآور در این دستگاه ذخیره می‌شود و می‌توانی آن را به تقویم اضافه کنی.</p>
+    </form>
+    <div id="remindersList"></div>
+  </aside>
+
+  <footer><b>کادوپیچ</b><span>پیشنهاد خوب، شروع یک خاطره‌ی خوب است.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
